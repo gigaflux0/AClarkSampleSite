@@ -1,0 +1,43 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  branch_id: 1
+  dor: MyString
+  colour: MyString
+  fuel_type: MyString
+  year: MyString
+  plate: MyString
+  mileage: MyString
+  body_type: MyString
+  doors: MyString
+  make: MyString
+  model: MyString
+  variant: MyString
+  engine_size: MyString
+  co2: MyString
+  mpg_orig: MyString
+  mpg: MyString
+  price: MyString
+  transmission: MyString
+  previous_owners: MyString
+
+two:
+  branch_id: 1
+  dor: MyString
+  colour: MyString
+  fuel_type: MyString
+  year: MyString
+  plate: MyString
+  mileage: MyString
+  body_type: MyString
+  doors: MyString
+  make: MyString
+  model: MyString
+  variant: MyString
+  engine_size: MyString
+  co2: MyString
+  mpg_orig: MyString
+  mpg: MyString
+  price: MyString
+  transmission: MyString
+  previous_owners: MyString

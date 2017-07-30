@@ -12,6 +12,31 @@
 
 ActiveRecord::Schema.define(version: 20170729160644) do
 
+  create_table "branches", force: :cascade do |t|
+    t.string "web_name"
+    t.string "web_short_name"
+    t.string "branch_name"
+    t.string "address1"
+    t.string "address2"
+    t.string "address3"
+    t.string "town"
+    t.string "postcode"
+    t.string "region"
+    t.string "phone"
+    t.string "sys_longitude"
+    t.string "sys_latitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.integer "vehicle_id"
+    t.string "scale"
+    t.string "path"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -20,6 +45,30 @@ ActiveRecord::Schema.define(version: 20170729160644) do
     t.string "password_digest"
     t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
+  end
+
+  create_table "vehicles", force: :cascade do |t|
+    t.integer "branch_id"
+    t.string "dor"
+    t.string "colour"
+    t.string "fuel_type"
+    t.string "year"
+    t.string "plate"
+    t.string "mileage"
+    t.string "body_type"
+    t.string "doors"
+    t.string "make"
+    t.string "model"
+    t.string "variant"
+    t.string "engine_size"
+    t.string "co2"
+    t.string "mpg_orig"
+    t.string "mpg"
+    t.string "price"
+    t.string "transmission"
+    t.string "previous_owners"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
