@@ -14,65 +14,56 @@
   <div class="container">
     <div class="col-sm-3">
 
-      <div class="btn-group">
-        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Scrollable Menu 
-        <span class="caret"></span></button>
-        <ul class="dropdown-menu scrollable-menu" role="menu">
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-        </ul>
-      </div>
+      <div class="form-group">
+	    <label for="makes">Make:</label>
+	    <select class="form-control" id="makes">
+	      <option>1</option>
+	      <option>2</option>
+	      <option>3</option>
+	      <option>4</option>
+	    </select>
+	  </div>
 
     </div>
 
     <div class="col-sm-3">
 
-      <div class="btn-group">
-        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Scrollable Menu 
-        <span class="caret"></span></button>
-        <ul class="dropdown-menu scrollable-menu" role="menu">
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-        </ul>
-      </div>
+      <div class="form-group">
+	    <label for="models">Model:</label>
+	    <select class="form-control" id="models">
+	      <option>1</option>
+	      <option>2</option>
+	      <option>3</option>
+	      <option>4</option>
+	    </select>
+	  </div>
 
     </div>
  
-    <div class="col-sm-3">
+    <div class="col-sm-2">
 
-Filter by price interval: <b>€ 10</b> <input id="ex2" type="text" class="span2" value="" data-slider-min="10" data-slider-max="1000" data-slider-step="5" data-slider-value="[250,450]"/> <b>€ 1000</b>
+      <div class="form-group">
+	    <label for="minprice">Minimum price(£):</label>
+	    <input type="number" class="form-control" id="minprice">
+	  </div>
 
     </div>
   
-    <div class="col-sm-3">
+    <div class="col-sm-2">
 
-      <!-- scrolly bars -->
+      <div class="form-group">
+	    <label for="maxprice">Maximum price(£):</label>
+	    <input type="number" class="form-control" id="maxprice">
+	  </div>
 
     </div>
+
+    <div class="col-sm-2"><br>
+
+      <%= link_to "Search cars!", signup_path, class: "btn btn-lg btn-primary" %>
+
+    </div>
+
   </div>
 
 
