@@ -4,69 +4,39 @@
   <h2>
     This is the home page for the
     <a href="https://www.arnoldclark.com/">Arnold Clark</a>
-    sample application.
-  </h2>
+    sample application.&emsp;
+    <%= link_to "Sign up now!", signup_path, class: "btn btn-default" %>
+  </h2><br><br>
 
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+  <%= form_for(:carSearch, url: carsearch_path) do |f| %>
 
-  <br><br>
-  
-  <div class="container">
-    <div class="col-sm-3">
+    <div class="container">
+      <div class="col-sm-3">
+        <%= f.label :make, "Make:" %>
+        <%= f.collection_select(:make, Vehicle.select(:make).distinct, :make, :make, {prompt: "All makes"}, {class: "form-control"}) %>
+      </div>
 
-      <div class="form-group">
-	    <label for="makes">Make:</label>
-	    <select class="form-control" id="makes">
-	      <option>1</option>
-	      <option>2</option>
-	      <option>3</option>
-	      <option>4</option>
-	    </select>
-	  </div>
-
-    </div>
-
-    <div class="col-sm-3">
-
-      <div class="form-group">
-	    <label for="models">Model:</label>
-	    <select class="form-control" id="models">
-	      <option>1</option>
-	      <option>2</option>
-	      <option>3</option>
-	      <option>4</option>
-	    </select>
-	  </div>
-
-    </div>
+      <div class="col-sm-3">
+	    <%= f.label :model, "Model:" %>
+	    <%= f.collection_select(:model, Vehicle.select(:model).distinct, :model, :model, {prompt: "All models"}, {class: "form-control"}) %>
+      </div>
  
-    <div class="col-sm-2">
-
-      <div class="form-group">
-	    <label for="minprice">Minimum price(£):</label>
-	    <input type="number" class="form-control" id="minprice">
-	  </div>
-
-    </div>
+      <div class="col-sm-2">
+	    <%= f.label :minprice, "Minimum price(£):" %>
+	    <%= f.number_field :minprice, class: 'form-control' %>
+      </div>
   
-    <div class="col-sm-2">
+      <div class="col-sm-2">
+        <%= f.label :maxprice, "Maximum price(£):" %>
+        <%= f.number_field :maxprice, class: 'form-control' %>
+      </div>
 
-      <div class="form-group">
-	    <label for="maxprice">Maximum price(£):</label>
-	    <input type="number" class="form-control" id="maxprice">
-	  </div>
-
+      <div class="col-sm-2"><br>
+        <%= f.submit "Search Cars!", class: "btn btn-lg btn-primary" %>
+      </div>
     </div>
 
-    <div class="col-sm-2"><br>
-
-      <%= link_to "Search cars!", signup_path, class: "btn btn-lg btn-primary" %>
-
-    </div>
-
-  </div>
-
-
+  <% end %>
 </div>
 
 <%= link_to image_tag("rails.png", alt: "Rails logo"), 'http://rubyonrails.org/' %>
