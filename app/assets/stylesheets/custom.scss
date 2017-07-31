@@ -197,3 +197,23 @@ input {
     border-bottom: 1px solid $gray-lighter;
   }
 }
+
+
+/* Force dropdown center to actually center */
+
+.dropdown-menu-center {
+    right: auto;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    -o-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+}
+
+
+/* Scrollable dropdown menu */
+
+.scrollable-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}
