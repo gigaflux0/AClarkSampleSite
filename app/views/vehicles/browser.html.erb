@@ -1,3 +1,70 @@
-<h1>Vehicles#browser</h1>
-<p>Find me in app/views/vehicles/browser.html.erb</p>
-<%= @results.inspect %>
+<% provide(:title, "Vehicle Search") %>
+<h1>Search Results</h1>
+
+<div class="container">
+  <% @results.each_with_index do |car, n| %>
+    
+    <div class="col-sm-4">
+      <% if n % 1 == 0 %>
+        <div class="panel panel-primary">
+          <div class="panel-heading"> <%= car.make %> <%= car.model %>
+            <span style="float:right;"><%= car.year %></span> 
+          </div>
+        </div>
+        <%= image_tag small_photo(car) %>
+        <div class="panel panel-primary">
+          <div class="panel-body">
+            Price:<span style="float:right;">£<%= car.price %></span><br>
+            Branch:<span style="float:right;"><%= car.branch.web_short_name %></span><br>
+            Colour:<span style="float:right;"><%= car.colour %></span><br>
+            Engine size:<span style="float:right;"><%= car.engine_size %></span><br>
+            Fuel type:<span style="float:right;"><%= car.fuel_type %></span><br>
+            Mileage:<span style="float:right;"><%= car.mileage %></span><br>
+            Previous owners:<span style="float:right;"><%= car.previous_owners %></span><br>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+  <% end %>
+</div>
+
+
+
+
+<!-- This commented out section can be used to implement a carousel. -->
+<!-- If there was more that one visual image per car. -->
+
+<% if false %>
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+     <% @results.first.photos.each_with_index do |photo, n| %>
+       <li data-target='#MyCarousel' data-slide-to="#{n}" class="#{'active' if n == 0}"></li>
+     <% end %>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <%= image_tag @results.first.photos.first.path %>
+    </div>
+    <% @results.first.photos.drop(1).each do |photo| %>
+      <div class="item">
+        <%= image_tag photo.path %>
+      </div>
+    <% end %>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+
+</div>
+<% end %>
