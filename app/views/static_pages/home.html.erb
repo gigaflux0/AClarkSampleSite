@@ -11,24 +11,29 @@
   <%= form_for(:carSearch, url: carsearch_path) do |f| %>
 
     <div class="container">
-      <div class="col-sm-3">
+      <div class="col-sm-2">
         <%= f.label :make, "Make:" %>
         <%= f.collection_select(:make, Vehicle.select(:make).distinct, :make, :make, {prompt: "All makes"}, {class: "form-control"}) %>
       </div>
 
-      <div class="col-sm-3">
+      <div class="col-sm-2">
 	    <%= f.label :model, "Model:" %>
 	    <%= f.collection_select(:model, Vehicle.select(:model).distinct, :model, :model, {prompt: "All models"}, {class: "form-control"}) %>
+      </div>
+
+      <div class="col-sm-2">
+      <%= f.label :web_name, "Branch:" %>
+      <%= f.collection_select(:web_name, Branch.select(:web_name).distinct, :web_name, :web_name, {prompt: "All branches"}, {class: "form-control"}) %>
       </div>
  
       <div class="col-sm-2">
 	    <%= f.label :minprice, "Minimum price(£):" %>
-	    <%= f.number_field :minprice, class: 'form-control' %>
+	    <%= f.number_field :minprice, min: 0, value: 0, class: 'form-control' %>
       </div>
   
       <div class="col-sm-2">
         <%= f.label :maxprice, "Maximum price(£):" %>
-        <%= f.number_field :maxprice, class: 'form-control' %>
+        <%= f.number_field :maxprice, min: 0, value: 10000000, class: 'form-control' %>
       </div>
 
       <div class="col-sm-2"><br>
